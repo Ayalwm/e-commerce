@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Continuous moving animation for features */
+@keyframes moveTrain {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .features-wrapper {
+    display: flex;
+    animation: moveTrain 10s linear infinite; /* 10s to complete one cycle, and repeat forever */
+  }
+  
+  .features-wrapper > div {
+    flex-shrink: 0; /* Prevents the items from shrinking */
+    width: 300px; /* You can adjust this width to fit your design */
+    margin-right: 2rem; /* Space between the features */
+  }
+  

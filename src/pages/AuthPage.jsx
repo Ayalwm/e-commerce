@@ -41,7 +41,7 @@ const AuthPage = () => {
     }
     if (!formData.username) errors.username = "Username is required";
     if (!formData.password) errors.password = "Password is required";
-    
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -64,11 +64,11 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
+    <div className="flex min-h-screen bg-gray-900">
       {/* Left Section (Text Side) */}
-      <div className="hidden lg:flex flex-1 justify-center items-center text-white p-12">
+      <div className="hidden lg:flex flex-1 justify-center items-center text-white p-12 bg-gradient-to-r from-gray-800 to-gray-700">
         <div className="text-center">
-          <h1 className="text-5xl font-bold mb-6">Welcome to Trustap</h1>
+          <h1 className="text-5xl font-bold mb-6">Welcome to Trustify</h1>
           <p className="text-lg mb-4">
             Your gateway to secure and efficient transactions. Join us today to experience seamless services.
           </p>
@@ -77,9 +77,9 @@ const AuthPage = () => {
       </div>
 
       {/* Right Section (Form Side) */}
-      <div className="flex-1 flex justify-center items-center p-8">
+      <div className="flex-1 flex justify-center items-center bg-white p-8 shadow-lg">
         <div className="w-full max-w-md space-y-8">
-          <h2 className="text-4xl font-semibold text-center text-white mb-4">
+          <h2 className="text-3xl font-semibold text-center text-gray-800 mb-4">
             {isSignUp ? "Sign Up" : "Sign In"}
           </h2>
 
@@ -87,16 +87,21 @@ const AuthPage = () => {
             {isSignUp && (
               <>
                 <div className="relative">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-600 mb-1"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full p-4 rounded-md text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 border-b-2 border-gray-300 ${
-                      formErrors.email ? "border-red-500" : ""
+                    className={`w-full p-3 rounded-md border text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      formErrors.email ? "border-red-500" : "border-gray-300"
                     }`}
-                    placeholder="Email"
-                    required
+                    placeholder="Enter your email"
                   />
                   {formErrors.email && (
                     <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
@@ -104,16 +109,21 @@ const AuthPage = () => {
                 </div>
 
                 <div className="relative">
+                  <label
+                    htmlFor="phoneNumber"
+                    className="block text-sm font-medium text-gray-600 mb-1"
+                  >
+                    Phone Number
+                  </label>
                   <input
                     type="text"
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
-                    className={`w-full p-4 rounded-md text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 border-b-2 border-gray-300 ${
-                      formErrors.phoneNumber ? "border-red-500" : ""
+                    className={`w-full p-3 rounded-md border text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      formErrors.phoneNumber ? "border-red-500" : "border-gray-300"
                     }`}
-                    placeholder="Phone Number"
-                    required
+                    placeholder="Enter your phone number"
                   />
                   {formErrors.phoneNumber && (
                     <p className="text-red-500 text-sm mt-1">{formErrors.phoneNumber}</p>
@@ -123,16 +133,21 @@ const AuthPage = () => {
             )}
 
             <div className="relative">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-gray-600 mb-1"
+              >
+                Username
+              </label>
               <input
                 type="text"
                 name="username"
                 value={formData.username}
                 onChange={handleInputChange}
-                className={`w-full p-4 rounded-md text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 border-b-2 border-gray-300 ${
-                  formErrors.username ? "border-red-500" : ""
+                className={`w-full p-3 rounded-md border text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  formErrors.username ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Username"
-                required
+                placeholder="Enter your username"
               />
               {formErrors.username && (
                 <p className="text-red-500 text-sm mt-1">{formErrors.username}</p>
@@ -140,16 +155,21 @@ const AuthPage = () => {
             </div>
 
             <div className="relative">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-600 mb-1"
+              >
+                Password
+              </label>
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                className={`w-full p-4 rounded-md text-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 border-b-2 border-gray-300 ${
-                  formErrors.password ? "border-red-500" : ""
+                className={`w-full p-3 rounded-md border text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  formErrors.password ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="Password"
-                required
+                placeholder="Enter your password"
               />
               {formErrors.password && (
                 <p className="text-red-500 text-sm mt-1">{formErrors.password}</p>
@@ -158,7 +178,7 @@ const AuthPage = () => {
 
             <button
               type="submit"
-              className="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+              className="w-full py-3 bg-gray-700 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             >
               {isSignUp ? "Create Account" : "Sign In"}
             </button>
@@ -167,7 +187,7 @@ const AuthPage = () => {
           <div className="text-center mt-4">
             <button
               onClick={() => setIsSignUp(!isSignUp)}
-              className="text-indigo-600 hover:text-indigo-700 font-medium"
+              className="text-blue-600 hover:text-blue-700 font-medium"
             >
               {isSignUp
                 ? "Already have an account? Sign In"
